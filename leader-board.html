@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Include your CSS file -->
+    <link rel="stylesheet" href="leader.css"> <!-- Include your CSS file -->
 </head>
 <body>
     <header>
         <h1>Leaderboard</h1>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a href="http://127.0.0.1:5500/lms/">Home</a></li>
                 <li><a href="/course-content">Course Content</a></li>
                 <!-- Add more navigation links as needed -->
             </ul>
@@ -25,6 +25,31 @@
     </footer>
 
     <!-- Include your client-side JavaScript file -->
-    <script src="script.js"></script>
+    <script>
+        // JavaScript code to populate the leaderboard dynamically
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch('/api/leaderboard'); // Assuming this is your API endpoint to fetch leaderboard data
+        const data = await response.json();
+
+        const leaderboardContainer = document.getElementById('leaderboard');
+        leaderboardContainer.innerHTML = ''; // Clear previous content
+
+        // Create HTML elements to display leaderboard data
+        const leaderboardList = document.createElement('ol');
+
+        data.forEach((entry, index) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${index + 1}. ${entry.name} - ${entry.score}`;
+            leaderboardList.appendChild(listItem);
+        });
+
+        leaderboardContainer.appendChild(leaderboardList);
+    } catch (error) {
+        console.error('Error fetching leaderboard data:', error);
+    }
+});
+
+    </script>
 </body>
 </html>

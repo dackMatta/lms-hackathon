@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('register-form');
     const loginForm = document.getElementById('login-form');
-    const logoutForm = document.getElementById('logout-form');
+    const logoutForm=document.getElementById('logout-form');
 
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, password, email, full_name })
+                body: JSON.stringify({ username,email, full_name,password })
             });
             if (response.ok) {
                 alert('Registration successful');
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error:', error);
+            alert('An error occurred');
         }
     });
 
@@ -52,21 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    logoutForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('/logout', {
-                method: 'POST'
-            });
-            if (response.ok) {
-                alert('Logout successful');
-            } else {
-                alert('Logout failed');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    });
+
 
     // Check if the current page is the course content page
     if (window.location.pathname === '/course-content') {

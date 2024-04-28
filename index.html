@@ -5,26 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Management App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <h1>Learning Management App</h1>
-    <form id="register-form">
-        <h2>Register</h2>
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="full_name" placeholder="Full Name" required>
-        <button type="submit">Register</button>
-    </form>
-    <form id="login-form">
-        <h2>Login</h2>
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-    <form id="logout-form">
-        <button type="submit">Logout</button>
-    </form>
+    <div id="header">
+          <nav>
+            <ul>
+              <li class="active-link" onclick="opentab('Home')"><a href="#">Home</a></li>
+              <li class="tab-links" onclick="opentab('Register')"><a href="#">Register</a></li>
+              <li class="tab-links" onclick="opentab('log in')"><a href="#">Log in</a></li>
+            </ul>
+          </nav>
+     </div>
+        <div class="topic">
+            <fieldset>
+            <p>
+             Welcome to the learning management App
+             This is every learners dream web tool that enables learners manage their school work as well as schedule their respective activities to increase productivity therefore attaining higher grades. Be sure to create an account by registering or continue your progress to attaining your destined grades by logging in 
+
+            </p>
+            </fieldset>
+        </div>
+        <div class="main">
+            <input type="checkbox" id="chk" aria-hidden="true">
+            <div class="signup">
+                <form id="register-form">
+                    <label for="chk" aria-hidden="true" >Register</label>
+                    <input type="text" name="txt" placeholder="Username" required="">
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="name" name="name" placeholder="Full name" required="">
+                    <input type="password" name="pwsd" placeholder="Password" required="">
+                    <button type="submit">Register</button>
+                
+                </form>
+            </div>
+            <div class="login">
+                <form id="login-form">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="pswd" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+    
+            </div>
+        </div>
+   
     <script src="script.js"></script>
 </body>
 </html>
